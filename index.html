@@ -5,9 +5,49 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<style>
+
+	body {
+		margin:0;
+		font-family:arial:helvetica:sans-serif;
+	}
+	#menuBar {
+		margin:0; 
+		padding:0; 
+		width:100%;
+		height:50px;
+		background-color:#D4D4D5;
+		padding-top:1px;
+	}
+	#title {
+		float:left;
+		margin-top:15px;
+		margin-left:20px;
+		padding-right:100px;
+	}
+</style>
 </head>
 
 <body>
+<div id="containter">
+	<div id="menuBar">
+		<strong id="title" >Code Runner</strong>
+		<div id="choiceButtons">
+			<input type="checkbox" id="htmlButton"/><label for="htmlButton">HTML</label>
+			<input type="checkbox" id="CSSButton"/><label for="CSSButton">CSS</label>
+		</div>
+	</div> <!-- end of menu bar -->
+	
+<div> <!-- end of container-->
 
+<script>
+	$("#htmlButton").button();
+</script>
 </body>
 </html>
