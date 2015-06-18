@@ -14,40 +14,141 @@
 <style>
 
 	body {
-		margin:0;
-		font-family:arial:helvetica:sans-serif;
+		margin:0px;
+		font-family:"Tahoma","arial","helvetica","sans-serif";
 	}
 	#menuBar {
-		margin:0; 
-		padding:0; 
+		margin:0px; 
+		padding:0px; 
 		width:100%;
 		height:50px;
 		background-color:#D4D4D5;
-		padding-top:1px;
+		border-bottom:1px grey solid;
+		
 	}
 	#title {
 		float:left;
-		margin-top:15px;
-		margin-left:20px;
+		font-weight:bold;
+		padding:10px 0 0 20px;
 		padding-right:100px;
 	}
+	
+	#divisonButtons{
+		float:left;
+		margin:0 auto;
+		margin-left:200px;
+		margin-top:10px;
+		border:1px grey solid;
+	}
+	
+	#pLanguages{
+		margin:0px;
+		padding:0px;
+		list-style:none;
+ 
+	}
+	
+	#pLanguages li{
+		float:left;
+
+		padding-left:5px;
+		padding-right:3px;
+		border-right:1px grey solid;
+	}
+	
+	#rightmost{
+		float:left;
+		padding-left:5px;
+		padding-right:3px;
+	}
+	
+	#runButton{
+		float:right;
+		margin-right:20px;
+		margin-top:10px;
+		height:25px;
+		width:40px;
+	
+	}
+	
+	.clear{
+		clear:both;
+	}	
+	
+	.codeContainer{
+		width:50%;
+		position:relative;
+		float:left;
+	}
+	
+	#css , #javaScript {
+		display:none;
+	}
+	
+	.codeArea{
+		font-family:monotype;
+		width:100%;
+		height:100%;
+		border:none;
+		border-right:1px grey solid;
+	
+	}
+	
+	.header{
+		position:absolute;
+		right:10px;
+		top:10px;
+	}
+	
+	#resultIframe	{
+		height:100%;
+		width:100%;
+		border:none;
+	}
+	
 </style>
 </head>
 
 <body>
 <div id="containter">
 	<div id="menuBar">
-		<strong id="title" >Code Runner</strong>
-		<div id="choiceButtons">
-			<input type="checkbox" id="htmlButton"/><label for="htmlButton">HTML</label>
-			<input type="checkbox" id="CSSButton"/><label for="CSSButton">CSS</label>
-		</div>
+		<div id="title"> Code Runner</div>
+		<div id="divisonButtons">
+			<ul id="pLanguages">
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li style="border:none">Result</li>
+			</ul>
+		</div> <!-- End of divsionbuttons -->
+		<button id="runButton">Run</button>
 	</div> <!-- end of menu bar -->
+	
+	<div class="clear"></div>
+	
+	<div class="codeContainer" id="html">
+		<div class="header">HTML</div>	
+		<textarea class="codeArea"></textarea>
+	</div>
+	
+	<div class="codeContainer" id="css">
+	
+	</div>
+	
+	<div class="codeContainer" id="javaScript">
+	
+	</div>
+	
+	<div class="codeContainer" id="Result">
+		<div class="header">Result</div>
+		<iframe id="resultIframe"></iframe>	
+	</div>
 	
 <div> <!-- end of container-->
 
 <script>
-	$("#htmlButton").button();
+	var height = $(window).height() - $("#menuBar").height();	
+	$(".codeContainer").height(height); 
 </script>
 </body>
 </html>
