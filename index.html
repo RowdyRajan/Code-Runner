@@ -68,7 +68,6 @@
 		margin-top:10px;
 		height:25px;
 		width:40px;
-	
 	}
 	
 	.clear{
@@ -87,10 +86,11 @@
 	
 	.codeArea{
 		font-family:monotype;
+		font-size:120%;
 		width:100%;
 		height:100%;
 		border:none;
-		border-right:1px grey solid;
+		border-right:1px grey solid;	
 		box-sizing:border-box;
 	}
 	
@@ -132,17 +132,17 @@
 	
 	<div class="codeContainer" id="HTML">
 		<div class="header">HTML</div>	
-		<textarea class="codeArea"></textarea>
+		<textarea class="codeArea" id="HTMLCode"></textarea>
 	</div>
 	
 	<div class="codeContainer" id="CSS">
 		<div class="header">CSS</div>
-		<textarea class="codeArea"></textarea>	
+		<textarea class="codeArea" id="CSSCode"></textarea>	
 	</div>
 	
 	<div class="codeContainer" id="JavaScript">
 		<div class="header">JavaScript</div>
-		<textarea class="codeArea"></textarea>
+		<textarea class="codeArea" id="JavaScriptCode"></textarea>
 	</div>
 	
 	<div class="codeContainer" id="Result">
@@ -168,6 +168,16 @@
 		console.log(displayedDivs);
 		//Setting the width of the screen
 		$(".codeContainer").width((100/displayedDivs) + "%");
+	});
+	
+	//Code to run the test web code in the result frame 
+	$("#runButton").click(function(){
+		console.log("yes");
+		//Puts the text in the text areas in the html of the result iframe with the correct   tags
+		$("#resultIframe").contents().find("html").html('<style>' +$("#CSSCode").val() + '</style>' + $("#HTMLCode").val());
+		
+		//Running the javascript in the iframe... suuuuper unsafe
+		document.getElementById("resultIframe").contentWindow.eval($("#	JavaScriptCode").val());	
 	});
 	
 </script>
